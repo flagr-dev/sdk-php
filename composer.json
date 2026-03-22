@@ -1,0 +1,24 @@
+{
+    "name": "flagr/sdk",
+    "description": "PHP SDK for flagr.dev — evaluate feature flags via direct API call",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flagr\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Flagr\\Tests\\": "tests/"
+        }
+    }
+}
