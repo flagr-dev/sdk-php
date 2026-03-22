@@ -29,10 +29,12 @@ if ($flagr->isEnabled('new-checkout', tenantId: $userId)) {
 ```php
 $enabled = $flagr->isEnabled(
     flagKey:  'new-checkout',
-    tenantId: $userId,
-    default:  false,   // returned if flag is unknown or request fails
+    tenantId: $userId,   // optional, default "" — omit for flags that don't use partial rollout
+    default:  false,     // returned if flag is unknown or request fails
 );
 ```
+
+`tenantId` is optional. For `partially_enabled` flags, an empty `tenantId` always returns `false`.
 
 Every call makes a single HTTP POST to `/evaluate`. No local cache, no background connection.
 
