@@ -62,7 +62,7 @@ class FlagrClient
 
         $data = json_decode((string) $response, true);
 
-        return $data['value'] ?? $default;
+        return ($data[$flagKey]['status'] ?? '') === 'enabled';
     }
 
 }
