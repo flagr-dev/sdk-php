@@ -65,8 +65,4 @@ class FlagrClient
         return $data['value'] ?? $default;
     }
 
-    public function __destruct()
-    {
-        curl_close($this->curl);
-    }
 }
