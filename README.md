@@ -29,12 +29,12 @@ if ($flagr->isEnabled('new-checkout', tenantId: $userId)) {
 ```php
 $enabled = $flagr->isEnabled(
     flagKey:  'new-checkout',
-    tenantId: $userId,   // optional, default "" — omit for flags that don't use partial rollout
+    tenantId: $userId,   // required — user ID, org ID, or any entity identifier
     default:  false,     // returned if flag is unknown or request fails
 );
 ```
 
-`tenantId` is optional. For `partially_enabled` flags, an empty `tenantId` always returns `false`.
+`tenantId` is **required** — the Flagr evaluation API always requires a non-empty `tenant_id`. Unlike the SSE-based SDKs (TypeScript, Python, Go, Kotlin) which evaluate locally, the PHP SDK sends every evaluation to the API directly.
 
 Every call makes a single HTTP POST to `/evaluate`. No local cache, no background connection.
 

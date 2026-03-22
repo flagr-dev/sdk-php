@@ -35,7 +35,7 @@ class FlagrClient
         $this->curl = $handle;
     }
 
-    public function isEnabled(string $flagKey, string $tenantId = "", bool $default = false): bool
+    public function isEnabled(string $flagKey, string $tenantId, bool $default = false): bool
     {
         $body = json_encode([
             'flagKey' => $flagKey,
